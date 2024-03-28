@@ -12,3 +12,16 @@ git remote add origin
 git remote -v -> verificar
 
 
+problemas com push faça
+tentar:
+
+git fetch origin master
+git merge origin master
+Depois de escrever este código recebi outro erro: (non-fast-forward)
+
+Eu escrevo este código:
+
+git fetch origin master:tmp
+git rebase tmp
+git push origin HEAD:master
+git branch -D tmp
