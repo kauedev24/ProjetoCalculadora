@@ -1,0 +1,14 @@
+git config --global user.name ""
+git config --global user.email ""
+git config --global init.defaultBranch main
+git init
+
+COM CHAVE SSH
+ssh-keygen
+copiar diretório onde a chave foi salva ".pub"
+acessa diretorio e copia a o código para inserir no github
+
+git remote add origin 
+git remote -v -> verificar
+
+
