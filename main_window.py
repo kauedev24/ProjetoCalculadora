@@ -1,4 +1,7 @@
 """."""
+import qdarktheme
+from variables import (
+    PRIMARY_COLOR, DARKER_PRIMARY_COLOR, DARKEST_PRIMARY_COLOR)
 from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
 
 
@@ -9,6 +12,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent, *args, **kwargs)
 
         # configurações
+        self.definitionTheme(self.qss)
         self.widget_central = QWidget()
         self.vLayout = QVBoxLayout()
         self.widget_central.setLayout(self.vLayout)
@@ -16,6 +20,34 @@ class MainWindow(QMainWindow):
 
         # titulo
         self.setWindowTitle("calculadora")
+
+    def definitionTheme(self, qss):
+        qdarktheme.setup_theme(
+            theme='dark',
+            custom_colors={
+                "[dark]": {
+                    "primary": f"{PRIMARY_COLOR}"
+                }
+            },
+            additional_qss=f'{qss}'
+        )
+
+    def qss(self):
+        return f"""
+        PushButton[cssClass="specialButton"] {{
+                color: #fff;
+                background: "{PRIMARY_COLOR}";
+                }}        
+
+        PushButton[cssClass="specialButton"]:hover {{
+                color: #fff;
+                background: "{DARKER_PRIMARY_COLOR}";
+                }}
+        PushButton[cssClass="specialButton"]:pressed {{
+                color: #fff;
+                background: "{DARKEST_PRIMARY_COLOR}";
+                }}
+        """
 
     def adjustFixedSize(self):
         # ultimo passo
