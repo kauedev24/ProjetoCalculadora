@@ -1,8 +1,8 @@
-"""."""
+""" definições main """
 import qdarktheme
+from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QGridLayout
 from variables import (
     PRIMARY_COLOR, DARKER_PRIMARY_COLOR, DARKEST_PRIMARY_COLOR)
-from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
 
 
 class MainWindow(QMainWindow):
@@ -12,15 +12,16 @@ class MainWindow(QMainWindow):
         super().__init__(parent, *args, **kwargs)
 
         # configurações
-        self.definitionTheme(self.qss)
         self.widget_central = QWidget()
         self.vLayout = QVBoxLayout()
+        self.definitionTheme(self.qss())
         self.widget_central.setLayout(self.vLayout)
         self.setCentralWidget(self.widget_central)
 
         # titulo
         self.setWindowTitle("calculadora")
 
+    # tema
     def definitionTheme(self, qss):
         qdarktheme.setup_theme(
             theme='dark',
@@ -32,27 +33,27 @@ class MainWindow(QMainWindow):
             additional_qss=f'{qss}'
         )
 
+    # stilo dos botões
     def qss(self):
         return f"""
-        PushButton[cssClass="specialButton"] {{
+        QPushButton[cssClass="specialButton"] {{
                 color: #fff;
                 background: "{PRIMARY_COLOR}";
                 }}        
-
-        PushButton[cssClass="specialButton"]:hover {{
+        QPushButton[cssClass="specialButton"]:hover {{
                 color: #fff;
                 background: "{DARKER_PRIMARY_COLOR}";
                 }}
-        PushButton[cssClass="specialButton"]:pressed {{
+        QPushButton[cssClass="specialButton"]:pressed {{
                 color: #fff;
                 background: "{DARKEST_PRIMARY_COLOR}";
                 }}
         """
 
     def adjustFixedSize(self):
-        # ultimo passo
+        # ultima definição
         self.adjustSize()
         self.setFixedSize(self.width(), self.height())
 
-    def addToVLayout(self, widget: QWidget):
+    def addWidgetToVLayout(self, widget: QWidget):
         self.vLayout.addWidget(widget)

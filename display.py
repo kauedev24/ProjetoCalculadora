@@ -1,3 +1,4 @@
+""" display """
 from PySide6.QtWidgets import QLineEdit
 from PySide6.QtCore import Qt
 from variables import BIG_FONT_SIZE, TEXTE_MARGIN, MINIMUM_WIDTH
@@ -10,6 +11,7 @@ class Display(QLineEdit):
         self.configStyle()
 
     def configStyle(self):
+        """ definições do display """
         margins = [TEXTE_MARGIN for _ in range(4)]
 
         self.setStyleSheet(f'font-size: {BIG_FONT_SIZE}px;')

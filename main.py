@@ -6,28 +6,48 @@ from main_window import MainWindow
 from variables import WINDOW_ICON_PATH
 from display import Display
 from info import Info
+from buttons import Button, ButtonsGrid
 
 
 if __name__ == '__main__':
-    # Cria aplicação
+    # cria aplicação
     app = QApplication(argv)
     window = MainWindow()
 
-    # Define o ícone
+    # define o ícone
     icon = QIcon(str(WINDOW_ICON_PATH))
     window.setWindowIcon(icon)
     app.setWindowIcon(icon)
 
-    # Info
+    # info
     info = Info('2.0 ^ 10.0 = 1024')
-    window.addToVLayout(info)
+    window.addWidgetToVLayout(info)
 
-    # Display
+    # display
     display = Display()
     # display.setPlaceholderText('digite algo')
-    window.addToVLayout(display)
+    window.addWidgetToVLayout(display)
 
-    # Executa tudo
+    buttonsGrid = ButtonsGrid(display)
+    window.vLayout.addLayout(buttonsGrid)
+
+    # buttonsGrid.addWidget(Button('1'), 0, 0)
+    # buttonsGrid.addWidget(Button('2'), 0, 1)
+    # buttonsGrid.addWidget(Button('3'), 0, 2)
+    # buttonsGrid.addWidget(Button('/'), 0, 3)
+    # buttonsGrid.addWidget(Button('4'), 1, 0)
+    # buttonsGrid.addWidget(Button('5'), 1, 1)
+    # buttonsGrid.addWidget(Button('6'), 1, 2)
+    # buttonsGrid.addWidget(Button('*'), 1, 3)
+    # buttonsGrid.addWidget(Button('7'), 2, 0)
+    # buttonsGrid.addWidget(Button('8'), 2, 1)
+    # buttonsGrid.addWidget(Button('9'), 2, 2)
+    # buttonsGrid.addWidget(Button('-'), 2, 3)
+    # buttonsGrid.addWidget(Button('0'), 3, 0)
+    # buttonsGrid.addWidget(Button('='), 3, 1, 1, 2)
+    # buttonsGrid.addWidget(Button('+'), 3, 3)
+
+    # executa tudo
     window.adjustFixedSize()
     window.show()
     app.exec()
