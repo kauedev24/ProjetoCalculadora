@@ -20,7 +20,7 @@ if __name__ == '__main__':
     app.setWindowIcon(icon)
 
     # info
-    info = Info('2.0 ^ 10.0 = 1024')
+    info = Info('')
     window.addWidgetToVLayout(info)
 
     # display
@@ -28,8 +28,13 @@ if __name__ == '__main__':
     # display.setPlaceholderText('digite algo')
     window.addWidgetToVLayout(display)
 
-    buttonsGrid = ButtonsGrid(display)
+    buttonsGrid = ButtonsGrid(display, info)
     window.vLayout.addLayout(buttonsGrid)
+
+    # executa tudo
+    window.adjustFixedSize()
+    window.show()
+    app.exec()
 
     # buttonsGrid.addWidget(Button('1'), 0, 0)
     # buttonsGrid.addWidget(Button('2'), 0, 1)
@@ -46,8 +51,3 @@ if __name__ == '__main__':
     # buttonsGrid.addWidget(Button('0'), 3, 0)
     # buttonsGrid.addWidget(Button('='), 3, 1, 1, 2)
     # buttonsGrid.addWidget(Button('+'), 3, 3)
-
-    # executa tudo
-    window.adjustFixedSize()
-    window.show()
-    app.exec()
