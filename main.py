@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # display.setPlaceholderText('digite algo')
     window.addWidgetToVLayout(display)
 
-    buttonsGrid = ButtonsGrid(display, info)
+    buttonsGrid = ButtonsGrid(display, info, window)
     window.vLayout.addLayout(buttonsGrid)
 
     # executa tudo

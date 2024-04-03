@@ -1,6 +1,6 @@
 """ definições main """
 import qdarktheme
-from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QGridLayout
+from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QMessageBox
 from variables import (
     PRIMARY_COLOR, DARKER_PRIMARY_COLOR, DARKEST_PRIMARY_COLOR)
 
@@ -57,3 +57,6 @@ class MainWindow(QMainWindow):
 
     def addWidgetToVLayout(self, widget: QWidget):
         self.vLayout.addWidget(widget)
+
+    def makeMsgBox(self):
+        return QMessageBox(self)
