@@ -21,3 +21,12 @@ def isValidNumber(string: str):
 
 def isEmpty(string: str):
     return len(string) == 0
+
+
+def convertToNumber(string: str):
+    number = float(string)
+
+    if number.is_integer():
+        number = int(number)
+
+    return number
